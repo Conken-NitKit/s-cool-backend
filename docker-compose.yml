@@ -1,0 +1,12 @@
+version: "3.9"
+services: 
+  api:
+    command: sh -c 'go install "github.com/cosmtrek/air" && air -c .air.toml'
+    build:
+      context: ./api
+      dockerfile: ./Dockerfile
+      target: builder
+    ports:
+      - 8080:8080
+    volumes:
+      - ./api:/build
