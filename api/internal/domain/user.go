@@ -9,14 +9,14 @@ import (
 )
 
 type User struct {
-	userId 					ID
-	accountId			 	ID
-	email 					Email
-	name  					DisplayName
-	gender					Gender
-	birthDay				time.Time
-	privacyStatus		PrivacyStatus
-	timestamp				Timestamp
+	userId        ID
+	accountId     ID
+	email         Email
+	name          DisplayName
+	gender        Gender
+	birthDay      time.Time
+	privacyStatus PrivacyStatus
+	timestamp     Timestamp
 }
 
 func (user User) Validate() error {
