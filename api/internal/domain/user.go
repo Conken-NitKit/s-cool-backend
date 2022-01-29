@@ -36,7 +36,7 @@ type DisplayName string
 func (name DisplayName) Validate() error {
 	return validation.Validate(
 		string(name),
-		validation.Required.Error("DisplayName is required"),
+		validation.Required,
 		validation.RuneLength(1, 50),
 	)
 }
@@ -55,6 +55,7 @@ type Gender string
 func (geneder Gender) Validate() error {
 	return validation.Validate(
 		string(geneder),
+		validation.Required,
 		validation.In("Female", "Male", "Other"),
 	)
 }
@@ -64,6 +65,7 @@ type PrivacyStatus string
 func (status PrivacyStatus) Validate() error {
 	return validation.Validate(
 		string(status),
+		validation.Required,
 		validation.In("public", "private"),
 	)
 }
