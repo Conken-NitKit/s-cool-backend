@@ -8,8 +8,8 @@ import (
 )
 
 type Timestamp struct {
-	createdAt 			time.Time
-	updatedAt 			time.Time
+	createdAt time.Time
+	updatedAt time.Time
 }
 
 func (timestamp Timestamp) Validate() error {
@@ -21,7 +21,7 @@ func (timestamp Timestamp) Validate() error {
 func (timestamp Timestamp) ValidateOrder() error {
 	var createdAt = timestamp.createdAt.Unix()
 	var updatedAt = timestamp.updatedAt.Unix()
-	if (createdAt <= updatedAt) {
+	if createdAt > updatedAt {
 		return errors.New("updatedAt cannot be set before the createdAt")
 	}
 	return nil
