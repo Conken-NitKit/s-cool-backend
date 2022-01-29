@@ -20,6 +20,7 @@ func (member Member) Validate() error {
 		member.userId.Validate(),
 		member.communityMemberDisplayId.Validate(),
 		member.communityMemberId.Validate(),
+		member.localName.Validate(),
 		member.role.Validate(),
 	)
 }
