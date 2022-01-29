@@ -37,10 +37,16 @@ func (name Name) Validate() error {
 
 type MemberRole string
 
+const (
+	ROLE_OWNER MemberRole = "Owner"
+	ROLE_ADMIN MemberRole = "admin"
+	ROLE_NONE  MemberRole = ""
+)
+
 func (role MemberRole) Validate() error {
 	return validation.Validate(
 		string(role),
-		validation.In("owner", "admin", "member"),
+		validation.In(string(ROLE_OWNER), string(ROLE_ADMIN), string(ROLE_NONE)),
 	)
 }
 

@@ -52,20 +52,31 @@ func (email Email) Validate() error {
 
 type Gender string
 
+const (
+	GENDER_FEMALE Gender = "female"
+	GENDER_MALE   Gender = "male"
+	GENDER_OTHER  Gender = ""
+)
+
 func (geneder Gender) Validate() error {
 	return validation.Validate(
 		string(geneder),
 		validation.Required,
-		validation.In("Female", "Male", "Other"),
+		validation.In(string(GENDER_FEMALE), string(GENDER_MALE), string(GENDER_OTHER)),
 	)
 }
 
 type PrivacyStatus string
 
+const (
+	PRIVACY_PUBLIC  PrivacyStatus = "public"
+	PRIVACY_PRIVATE PrivacyStatus = "private"
+)
+
 func (status PrivacyStatus) Validate() error {
 	return validation.Validate(
 		string(status),
 		validation.Required,
-		validation.In("public", "private"),
+		validation.In(string(PRIVACY_PUBLIC), string(PRIVACY_PRIVATE)),
 	)
 }
