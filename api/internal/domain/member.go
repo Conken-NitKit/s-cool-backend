@@ -10,6 +10,7 @@ type Member struct {
 	userId                   ID
 	communityMemberId        ID
 	communityMemberDisplayId ID
+	localName                DisplayName
 	role                     MemberRole
 	banned                   bool
 }
