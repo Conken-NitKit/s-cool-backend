@@ -15,6 +15,16 @@ type app struct {
 	cfg        config.AppConfig
 }
 
+func ProvideApp(
+	ctx context.Context,
+	cfg config.AppConfig,
+) App {
+	return &app{
+		ctx: ctx,
+		cfg: cfg,
+	}
+}
+
 func (a *app) Run() error {
 	return errors.New("サンプルエラー")
 }
