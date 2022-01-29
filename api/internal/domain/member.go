@@ -10,8 +10,9 @@ type Member struct {
 	userId                   ID
 	communityMemberId        ID
 	communityMemberDisplayId ID
-	localName                DisplayName
+	localName                Name
 	role                     MemberRole
+	groupId                  GroupId
 	banned                   bool
 }
 
@@ -25,6 +26,15 @@ func (member Member) Validate() error {
 	)
 }
 
+type Name string
+
+func (name Name) Validate() error {
+	return validation.Validate(
+		string(name),
+		validation.RuneLength(1, 50),
+	)
+}
+
 type MemberRole string
 
 func (role MemberRole) Validate() error {
@@ -33,3 +43,5 @@ func (role MemberRole) Validate() error {
 		validation.In("owner", "admin", "member"),
 	)
 }
+
+type GroupId string
