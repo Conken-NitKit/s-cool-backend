@@ -9,6 +9,10 @@ type Community struct {
 	name                       Name
 	description                Description
 	externalInfoNecessaryLevel ExternalInfoNecessaryLevel
+	training                   []Training
+	// デザインが完成してからドメインを定義する
+	// infomations []Infomation
+	// projects    []Projects
 }
 
 func (community Community) Validate() error {
