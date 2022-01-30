@@ -5,18 +5,21 @@ import (
 	"time"
 
 	validation "github.com/go-ozzo/ozzo-validation/v4"
-	"github.com/go-ozzo/ozzo-validation/v4/is"
 )
 
 type User struct {
-	userId        ID
-	accountId     ID
-	email         Email
-	name          DisplayName
-	gender        Gender
-	birthDay      time.Time
-	privacyStatus PrivacyStatus
-	timestamp     Timestamp
+	userId                      ID
+	accountId                   ID
+	email                       Email
+	name                        Name
+	gender                      Gender
+	birthDay                    time.Time
+	externalNames               ExternalNames
+	externalIds                 ExternalIds
+	privacyStatus               PrivacyStatus
+	onboardingCompletedAt       time.Time
+	mobileOnboardingCompletedAt time.Time
+	timestamp                   Timestamp
 }
 
 func (user User) Validate() error {
@@ -28,25 +31,6 @@ func (user User) Validate() error {
 		user.gender.Validate(),
 		user.privacyStatus.Validate(),
 		user.timestamp.Validate(),
-	)
-}
-
-type DisplayName string
-
-func (name DisplayName) Validate() error {
-	return validation.Validate(
-		string(name),
-		validation.Required,
-		validation.RuneLength(1, 50),
-	)
-}
-
-type Email string
-
-func (email Email) Validate() error {
-	return validation.Validate(
-		string(email),
-		validation.When(email != "", is.Email),
 	)
 }
 

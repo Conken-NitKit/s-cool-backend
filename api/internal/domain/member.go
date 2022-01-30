@@ -8,9 +8,11 @@ import (
 
 type Member struct {
 	userId                   ID
+	communityId              ID
 	communityMemberId        ID
 	communityMemberDisplayId ID
-	localName                Name
+	realName                 OptionalName
+	nickName                 OptionalName
 	role                     MemberRole
 	groupId                  GroupId
 	banned                   bool
@@ -21,17 +23,9 @@ func (member Member) Validate() error {
 		member.userId.Validate(),
 		member.communityMemberDisplayId.Validate(),
 		member.communityMemberId.Validate(),
-		member.localName.Validate(),
+		member.realName.Validate(),
+		member.nickName.Validate(),
 		member.role.Validate(),
-	)
-}
-
-type Name string
-
-func (name Name) Validate() error {
-	return validation.Validate(
-		string(name),
-		validation.RuneLength(1, 50),
 	)
 }
 
