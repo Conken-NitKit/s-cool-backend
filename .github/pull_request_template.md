@@ -13,11 +13,11 @@
 <!--
 実際にどのような表示かの写真を貼り付ける項目です。
 動画の場合は下記の表を消して、[この記事](https://zenn.dev/naminodarie/articles/27f9c260fd81fd)を参考に動画を追加してください。
+-->
 
 | Before | After |
 | :-: | :-: |
 | <img width="450" alt="" src=""> | <img width="450" alt="" src=""> |
--->
 
 ## 参考URL
 <!--
