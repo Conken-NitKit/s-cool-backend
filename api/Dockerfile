@@ -1,13 +1,12 @@
 FROM golang:1.17 
 
-ENV CGO_ENABLED=0
-ENV GOOS=linux
-ENV GOARCH=amd64
-WORKDIR /build
+ENV CGO_ENABLED=0 \
+  GOOS=linux \
+  GOARCH=amd64
 
-COPY go.mod .
-COPY go.sum .
-RUN go mod download
-COPY . .
-RUN go mod tidy
-RUN go build -o bin/app ./cmd/main.go
+WORKDIR /build
+COPY . /build
+
+EXPOSE 80
+RUN go mod tidy && go build 
+CMD ["go", "run", "main.go"]
