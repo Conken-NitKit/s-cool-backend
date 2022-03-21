@@ -41,3 +41,7 @@
 # .PHONY: down
 # down: ## サービス用のコンテナを停止し、そのコンテナとネットワークを削除
 # 	docker compose down
+
+VAL := `lsof -i :80 -t`
+server-down: ## サーバーを落とす
+	kill -9 $(VAL);
