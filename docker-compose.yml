@@ -6,4 +6,11 @@ services:
       - 80:80
     volumes:
       - ./api:/build
-  
+  mysql:
+    build: ./mysql   
+    volumes:
+      - ./mysql/db:/docker-entrypoint-initdb.d  #初期データのマウント個所
+      - ./mysql/db:/var/lib/mysql #データの永続化用
+    container_name: "s-cool"
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin  #コンテナ内のMySQL起動時のパスワード admin 
