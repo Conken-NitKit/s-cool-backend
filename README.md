@@ -1,5 +1,22 @@
 # s-cool-backend
 
+## dockerコマンド
+### コンテナの起動
+```sh
+$ docker-compose up -d
+```
+
+### コンテナの停止
+```sh
+$ docker-compose down
+```
+### キャッシュクリア
+```sh
+$ docker-compose down -v
+$ docker-compose build --no-cache
+$ docker-compose up -
+```
+
 ## Commit/Push について
 
 ### - commit接頭辞
