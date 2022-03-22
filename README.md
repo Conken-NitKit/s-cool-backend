@@ -1,5 +1,33 @@
 # s-cool-backend
 
+## dockerコマンド
+### コンテナの起動
+```sh
+$ docker-compose up -d
+```
+
+### コンテナの停止
+```sh
+$ docker-compose down
+```
+### キャッシュクリア
+```sh
+$ docker-compose down -v
+$ docker-compose build --no-cache
+$ docker-compose up -
+```
+## MySQLコマンド
+```sh
+$ docker-compose exec -it s-cool bash
+```
+
+```sh
+# mysql -uroot -padmin
+```
+
+```sh
+mysql> show databases;
+```
 ## Commit/Push について
 
 ### - commit接頭辞
@@ -39,4 +67,3 @@ hotfix/fix_button_bug
 2.issueが存在する場合は接頭辞に続けて #100 のようにissue番号を含める.(複数人での開発の際は極力issueを立てた後branchを立てるようにする).
 3.最後に要約を記載 
 ```
-
