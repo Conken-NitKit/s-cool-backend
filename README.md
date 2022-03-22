@@ -18,7 +18,7 @@ $ docker-compose down
 ```sh
 $ docker-compose down -v
 $ docker-compose build --no-cache
-$ docker-compose up -d
+$ docker-compose up -d //再度立ち上げ
 ```
 ## MySQLコマンド
 ```sh
