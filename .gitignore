@@ -1,2 +1,3 @@
 api/bin/
 **/go.sum
+mysql/DB/
