@@ -16,7 +16,18 @@ $ docker-compose down -v
 $ docker-compose build --no-cache
 $ docker-compose up -
 ```
+## MySQLコマンド
+```sh
+$ docker-compose exec -it s-cool bash
+```
 
+```sh
+# mysql -uroot -padmin
+```
+
+```sh
+mysql> show databases;
+```
 ## Commit/Push について
 
 ### - commit接頭辞
