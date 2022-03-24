@@ -21,14 +21,15 @@ $ docker-compose build --no-cache
 $ docker-compose up -d //再度立ち上げ
 ```
 ## MySQLコマンド
+- コンテナに入る
 ```sh
 $ docker-compose exec -it s-cool bash
 ```
-
+- mysqlにログイン
 ```sh
 # mysql -uroot -padmin
 ```
-
+- データベースの一覧表示
 ```sh
 mysql> show databases;
 ```
